@@ -1,0 +1,53 @@
+<div class="contact">
+    <div class="inner">
+        <form id='contactForm' style="z-index:111" ng-submit="submit()">
+            <h3>Book a date or contact</h3>
+
+            <div class="form-inline">
+                <div class="halfsies">
+                    <div class="form-group pull-left">
+                        <label>Name (required)</label>
+                        <input type="text" ng-model="name" required>
+                    </div>
+                    <div style="z-index:112" class="form-group pull-right">
+                        <label>Email (required)</label>
+                        <input type="email" placeholder="Email" ng-model="email" required>
+                    </div>
+                </div>
+
+                <div class="halfsies">
+                    <div style="z-index:11" class="form-group pull-left">
+                        <label>Subject</label>
+                        <input type="text" ng-model="subject" value="Photography Inquiry" required>
+                    </div>
+                    <div style="z-index:11" class="form-group pull-right">
+                        <label>Shoot Date:
+                            <span>{{date}}</span>
+                        </label>
+                        <input ng-model="date" date-picker="date" class="datepicker" placeholder="">
+
+                        <p style="font-size: 12px;margin-top:.5em;clear:both;position:absolute;">
+                            <span ng-class="{open:color[0],booked:color[1],unknown:color[2]}">{{availability}}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="h4" style="margin-bottom:2px;">Message:</label>
+
+                    <p style="margin:2px;">Our friendship starts here. Tell me your story. My best work is
+                        made when we can connect as people, not as vendors / clients.</p>
+                    <textarea style="width:100%;" rows="5" ng-model="body" required></textarea>
+                </div>
+                <div class="form-group block-center text-center" style="width:100%;margin-top:1em;">
+                    <input style='padding:9px 6em;' type="submit" id="submit" value="Submit"
+                           class="btn btn-default block-center"/>
+                </div>
+            </div>
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+
+        </form>
+        <div id="messageSent" style="display: none;" class="block-center text-center"><p>Sending...</p></div>
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div ui-view="defaultView"></div>
+</div>
